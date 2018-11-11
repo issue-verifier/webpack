@@ -1,6 +1,16 @@
 // const str = require('./a');
-import str from './a';
+// import str from './a';
 
-console.log(module);
+// console.log('start, z');
 
-console.log(str);
+if (module.hot) {
+  module.hot.accept(function(err) {
+    if (err) {
+      console.error(err);
+    }
+
+    const str = require('./a');
+
+    // console.log(str);
+  });
+}
