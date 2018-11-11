@@ -90,10 +90,11 @@
 /*!**************!*\
   !*** ./a.js ***!
   \**************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default, d */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("const b = __webpack_require__(/*! ./b */ \"./b.js\");\nconst c = `${b} world`;\n\nmodule.exports = c;\nmodule.exports.d = 1;\n\n//# sourceURL=webpack:///./a.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"d\", function() { return d; });\n/* harmony import */ var _b__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./b */ \"./b.js\");\n\n\nconst c = `${_b__WEBPACK_IMPORTED_MODULE_0__[\"default\"]} world`;\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (c);\nconst d = _b__WEBPACK_IMPORTED_MODULE_0__[\"b\"];\n\n//# sourceURL=webpack:///./a.js?");
 
 /***/ }),
 
@@ -101,10 +102,11 @@ eval("const b = __webpack_require__(/*! ./b */ \"./b.js\");\nconst c = `${b} wor
 /*!**************!*\
   !*** ./b.js ***!
   \**************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default, b */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("const a = 'hello';\n\nmodule.exports = a;\n\n//# sourceURL=webpack:///./b.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"b\", function() { return b; });\nconst a = 'hello';\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (a);\n\nconst b = 'named export';\n\n//# sourceURL=webpack:///./b.js?");
 
 /***/ }),
 
@@ -112,10 +114,11 @@ eval("const a = 'hello';\n\nmodule.exports = a;\n\n//# sourceURL=webpack:///./b.
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("const str = __webpack_require__(/*! ./a */ \"./a.js\");\n\nconsole.log(str);\n\n//# sourceURL=webpack:///./index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./a */ \"./a.js\");\nconst str = __webpack_require__(/*! ./a */ \"./a.js\");\n\nconsole.log(str);\n\n\n\nconsole.log(_a__WEBPACK_IMPORTED_MODULE_0__[\"default\"], _a__WEBPACK_IMPORTED_MODULE_0__[\"d\"]);\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 

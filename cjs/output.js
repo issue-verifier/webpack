@@ -1,6 +1,6 @@
 const modules = {
   "./a.js": (function (module, exports, __webpack_require__) {
-    eval("const b = __webpack_require__(/*! ./b */ \"./b.js\");\n\nconst c = `${b} world`;\n\nmodule.exports = c;\n\n//# sourceURL=webpack:///./a.js?");
+    eval("const b = __webpack_require__(/*! ./b */ \"./b.js\");\n\nconst c = `${b} world`;\n\nmodule.exports = c;\n\n //# sourceURL=webpack:///./a.js?");
   }),
   "./b.js": (function (module, exports) {
     eval("const a = 'hello';\n\nmodule.exports = a;\n\n//# sourceURL=webpack:///./b.js?");
@@ -22,6 +22,7 @@ const modules = {
   // The require function
   function __webpack_require__(moduleId) {
 
+    // console.log('moduleId', moduleId)
     // Check if module is in cache
     if (installedModules[moduleId]) return installedModules[moduleId].exports;
 
@@ -32,19 +33,48 @@ const modules = {
       exports: {}
     };
 
+    // 0
+    // (module, exports) { eval("const a = 'hello';\n\nmodule.exports = a;\n\n//# sourceURL=webpack:///./b.js?"); }
+    // others: e.g. index.js
+    // (module, exports, __webpack_require__) { eval("module.exports = __webpack_require__(/*! ./index.js */\"./index.js\");\n\n\n//# sourceURL=webpack:///multi_./index.js?"); }
+    // console.log('moduleId', moduleId)
+
+    console.log('----');
+    console.log(module); // A'
+
     // Execute the module function
+    // (module, exports, __webpack_require__)
+    // 各モジュールでラップされたfunction(){}をmodule.exportsをバインドとして呼ぶ
+    // 末端のmodulesはこれ以上再帰的な走査をする必要がないため__webpack_require__を持たない
     modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+    console.log('');
+    console.log('++++++')
+    console.log('finish call');
+    console.log(module); // A'
+    console.log('=====')
+
+    // 0
+    // {i: 0, l: false, exports: {…}}
+    // others
+    // {i: "./index.js", l: false, exports: {…}} // TODO: exportsの確認
+    // {i: "./a.js", l: false, exports: "hello world"}
+    // console.log('module.exports', module.exports)
+    // console.log('===moduleId', moduleId)
 
     // Flag the module as loaded
     module.l = true;
 
+    // 普通のコードのmodule.exportsの中身
     // Return the exports of the module
     return module.exports;
   }
 
+  // モジュールリスト
   // expose the modules object (__webpack_modules__)
   __webpack_require__.m = modules;
 
+  // モジュールキャッシュ(moduleが入っている、L30参照)
   // expose the module cache
   __webpack_require__.c = installedModules;
 

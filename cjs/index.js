@@ -1,4 +1,3 @@
-// const str = require('./a');
-import str from './a';
+const str = require('./a');
 
 console.log(str);
