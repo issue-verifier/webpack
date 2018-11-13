@@ -3,6 +3,7 @@
 
 // console.log('start, z');
 
+'aa'
 if (module.hot) {
   module.hot.accept(function(err) {
     if (err) {
