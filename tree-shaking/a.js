@@ -1,9 +1,7 @@
 import { b1 } from './b';
 
-const c = `${b1} world`;
+const a = `${b1} from b`;
 
-export default c;
+export default a;
 
-export function test() {
-  return 2 ** 2;
-}
+export const test = () => 2 * 2;
