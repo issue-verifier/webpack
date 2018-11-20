@@ -146,7 +146,7 @@
 /******/ 		// chunk preloadng for javascript
 /******/
 /******/ 		var chunkPreloadMap = {
-/******/ 			"utilities": [
+/******/ 			"preload": [
 /******/ 				"a"
 /******/ 			]
 /******/ 		};
@@ -250,7 +250,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("async function a() {\n  console.log('start')\n__webpack_require__.e(/*! import() | prefetch */ \"prefetch\").then(__webpack_require__.t.bind(null, /*! ./prefetch */ \"./prefetch.js\", 7));\nconst b = await __webpack_require__.e(/*! import() | utilities */ \"utilities\").then(__webpack_require__.bind(null, /*! ./preload */ \"./preload.js\"));\n\nb();\n}\n\na();\n\n//# sourceURL=webpack:///./index.js?");
+eval("async function a() {\n  __webpack_require__.e(/*! import() | prefetch */ \"prefetch\").then(__webpack_require__.t.bind(null, /*! ./prefetch */ \"./prefetch.js\", 7));\n  const b = await __webpack_require__.e(/*! import() | preload */ \"preload\").then(__webpack_require__.bind(null, /*! ./preload */ \"./preload.js\"));\n  b();\n}\n\na();\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ })
 
