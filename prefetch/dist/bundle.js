@@ -142,6 +142,34 @@
 /******/ 				head.appendChild(script);
 /******/ 			}
 /******/ 		}
+/******/
+/******/ 		// chunk preloadng for javascript
+/******/
+/******/ 		var chunkPreloadMap = {
+/******/ 			"utilities": [
+/******/ 				"a"
+/******/ 			]
+/******/ 		};
+/******/
+/******/ 		var chunkPreloadData = chunkPreloadMap[chunkId];
+/******/ 		if(chunkPreloadData) {
+/******/ 			var head = document.getElementsByTagName('head')[0];
+/******/ 			chunkPreloadData.forEach(function(chunkId) {
+/******/ 				if(installedChunks[chunkId] === undefined) {
+/******/ 					installedChunks[chunkId] = null;
+/******/ 					var link = document.createElement('link');
+/******/
+/******/ 					link.charset = 'utf-8';
+/******/ 					if (__webpack_require__.nc) {
+/******/ 						link.setAttribute("nonce", __webpack_require__.nc);
+/******/ 					}
+/******/ 					link.rel = "preload";
+/******/ 					link.as = "script";
+/******/ 					link.href = jsonpScriptSrc(chunkId);
+/******/ 					head.appendChild(link);
+/******/ 				}
+/******/ 			});
+/******/ 		}
 /******/ 		return Promise.all(promises);
 /******/ 	};
 /******/
@@ -222,7 +250,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("  __webpack_require__.e(/*! import() | prefetch */ \"prefetch\").then(__webpack_require__.t.bind(null, /*! ./prefetch */ \"./prefetch.js\", 7));\n  __webpack_require__.e(/*! import() | chunk1-b */ \"chunk1-b\").then(__webpack_require__.t.bind(null, /*! ./preload */ \"./preload.js\", 7));\n    /* webpackChunkName: \"preload\", webpackPreload: true */\n\n//# sourceURL=webpack:///./index.js?");
+eval("async function a() {\n  console.log('start')\n__webpack_require__.e(/*! import() | prefetch */ \"prefetch\").then(__webpack_require__.t.bind(null, /*! ./prefetch */ \"./prefetch.js\", 7));\nconst b = await __webpack_require__.e(/*! import() | utilities */ \"utilities\").then(__webpack_require__.bind(null, /*! ./preload */ \"./preload.js\"));\n\nb();\n}\n\na();\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ })
 
