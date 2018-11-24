@@ -3,7 +3,7 @@ async function a() {
     /* webpackChunkName: "prefetch", webpackPrefetch: true */
     './prefetch'
   );
-  const b = await import(
+  const b = import(
     /* webpackChunkName: "preload", webpackPreload: true */
     './preload'
   );

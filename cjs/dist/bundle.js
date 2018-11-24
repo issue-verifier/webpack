@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const b = __webpack_require__(/*! ./b */ \"./b.js\");\nconst c = `${b} world`;\n\nmodule.exports = c;\nmodule.exports.d = 1;\n\n//# sourceURL=webpack:///./a.js?");
+eval("console.log('code-a-start');\nconst b = __webpack_require__(/*! ./b */ \"./b.js\");\nconst c = `${b} world`;\n\nmodule.exports = c;\nmodule.exports.d = 1;\n\nconsole.log('code-a');\n\n//# sourceURL=webpack:///./a.js?");
 
 /***/ }),
 
@@ -104,7 +104,7 @@ eval("const b = __webpack_require__(/*! ./b */ \"./b.js\");\nconst c = `${b} wor
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("const a = 'hello';\n\nmodule.exports = a;\n\n//# sourceURL=webpack:///./b.js?");
+eval("const a = 'hello';\n\nmodule.exports = a;\n\nconsole.log('code-b');\n\n//# sourceURL=webpack:///./b.js?");
 
 /***/ }),
 
@@ -115,18 +115,7 @@ eval("const a = 'hello';\n\nmodule.exports = a;\n\n//# sourceURL=webpack:///./b.
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const str = __webpack_require__(/*! ./a */ \"./a.js\");\n\nconsole.log(str);\n\n//# sourceURL=webpack:///./index.js?");
-
-/***/ }),
-
-/***/ 0:
-/*!************************!*\
-  !*** multi ./index.js ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("module.exports = __webpack_require__(/*! ./index.js */\"./index.js\");\n\n\n//# sourceURL=webpack:///multi_./index.js?");
+eval("console.log('code-index-require-start');\nconst str = __webpack_require__(/*! ./a */ \"./a.js\");\n\nconsole.log('code-index-require-end');\nconsole.log(str);\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ })
 
